@@ -1,5 +1,8 @@
 
-package loginandsignup;
+package loginandsignupteachers;
+
+import loginandsignupstudents.*;
+import javax.swing.JOptionPane;
 
 
 public class Login extends javax.swing.JFrame {
@@ -116,6 +119,11 @@ public class Login extends javax.swing.JFrame {
         loginbtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         loginbtn.setForeground(new java.awt.Color(255, 255, 255));
         loginbtn.setText("Login");
+        loginbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginbtnActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("I don't have an account");
 
@@ -213,6 +221,22 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_emailfieldActionPerformed
+
+    private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
+        // TODO add your handling code here:
+        if (emailfield.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Please fill out username");
+        }
+        else if(passwordfield.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Please fill out password");
+        } 
+        else if(emailfield.getText().contains("viman")&& passwordfield.getText().contains("12345678")){
+            JOptionPane.showMessageDialog(null, "Login Successfully! ");
+        } 
+        else{
+            JOptionPane.showMessageDialog(null, "Wrong username or password!","Message",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_loginbtnActionPerformed
 
     /**
      * @param args the command line arguments

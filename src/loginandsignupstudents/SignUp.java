@@ -1,5 +1,5 @@
 
-package loginandsignup;
+package loginandsignupstudents;
 import controller.addusercontroller;
 import model.modeluser;
 import controller.addusercontroller;
@@ -112,6 +112,11 @@ public class SignUp extends javax.swing.JFrame {
 
         userfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         userfield.setForeground(new java.awt.Color(102, 102, 102));
+        userfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userfieldActionPerformed(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(102, 102, 102));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -126,6 +131,11 @@ public class SignUp extends javax.swing.JFrame {
 
         passwordfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         passwordfield.setForeground(new java.awt.Color(102, 102, 102));
+        passwordfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordfieldActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("I've an account");
 
@@ -205,15 +215,13 @@ public class SignUp extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 113, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 126, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -242,6 +250,14 @@ public class SignUp extends javax.swing.JFrame {
          Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
      }
     }//GEN-LAST:event_signupbtnActionPerformed
+
+    private void userfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userfieldActionPerformed
+
+    private void passwordfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordfieldActionPerformed
 
     /**
      * @param args the command line arguments

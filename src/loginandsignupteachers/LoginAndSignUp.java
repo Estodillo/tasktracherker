@@ -1,5 +1,7 @@
 
-package loginandsignup;
+package loginandsignupteachers;
+
+import loginandsignupstudents.*;
 
 public class LoginAndSignUp {
 
