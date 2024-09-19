@@ -1,5 +1,7 @@
 
 package loginandsignupteachers;
+//import loginand.signup.Login;
+import com.mysql.cj.protocol.Message;
 import loginandsignupstudents.*;
 import controller.addusercontroller;
 import model.modeluser;
@@ -240,17 +242,34 @@ public class SignUp extends javax.swing.JFrame {
 
     private void signupbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupbtnActionPerformed
         // TODO add your handling code here:
+         if (userfield.getText().equals("") || emailfield.getText().equals("") || passwordfield.getPassword().equals("")) {
+//                 showMessage(Message.MessageType.ERROR, "Please Fill out Empty Fields!");
+                } else {
+                    String userName = userfield.getText();
+                    char[] password = passwordfield.getPassword();
+                    String email = emailfield.getText();
+                    user = new modeluser(userName, email, password);
+                    usercontroller controller = new usercontroller();
+                    try {
+                        controller.registerUser(user);
+                        
+                    } catch (ClassNotFoundException ex) {
+  //                      Logger.getLogger(PanelLoginAndRegister.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+  //                  showMessage(Message.MessageType.SUCCESS, "User Added");
+                    
+                }
         
-        String email = emailfield.getText();
-        String username = userfield.getText();
-        char[] password = passwordfield.getPassword();
-        user = new modeluser(username, email, password);
-        usercontroller controller = new usercontroller();
-     try {
-         controller.registerUser(user);
-     } catch (ClassNotFoundException ex) {
-         Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-     }
+//        String email = emailfield.getText();
+//        String username = userfield.getText();
+//        char[] password = passwordfield.getPassword();
+//        user = new modeluser(username, email, password);
+//        usercontroller controller = new usercontroller();
+//     try {
+//         controller.registerUser(user);
+//     } catch (ClassNotFoundException ex) {
+//         Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+//     }
     }//GEN-LAST:event_signupbtnActionPerformed
 
     private void userfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfieldActionPerformed

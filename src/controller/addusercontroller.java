@@ -1,4 +1,4 @@
-package controller;
+    package controller;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -18,7 +18,7 @@ public class addusercontroller {
     public  boolean addUserToDatabase(modeluser data) throws ClassNotFoundException {
     try {
         
-        String checkSql = "SELECT COUNT(*) AS count FROM user";
+        String checkSql = "SELECT COUNT(*) AS count FROM usertsble";
         PreparedStatement checkStatement = databaseconnector.getInstance().getConnection().prepareStatement(checkSql);
         ResultSet resultSet = checkStatement.executeQuery();
         resultSet.next();
@@ -27,10 +27,10 @@ public class addusercontroller {
         String sql;
         if (rowCount == 0) {
             
-            sql = "INSERT INTO user (username, password, email, role) VALUES (?, ?, ?, 'ADMIN')";
+            sql = "INSERT INTO usertsble (username, password, email, role) VALUES (?, ?, ?, 'TEACHER')";
         } else {
            
-            sql = "INSERT INTO user (username, password, email, role) VALUES (?, ?, ?, 'USER')";
+            sql = "INSERT INTO usertsble (username, password, email, role) VALUES (?, ?, ?, 'USER')";
         }
         
         PreparedStatement p = databaseconnector.getInstance().getConnection().prepareStatement(sql);
@@ -47,7 +47,7 @@ public class addusercontroller {
     public modeluser SignIn(modeluser data){
           try {
              
-              String sql = "SELECT * FROM user WHERE username LIKE ? AND password LIKE ?";
+              String sql = "SELECT * FROM usertsble WHERE username LIKE ? AND password LIKE ?";
               PreparedStatement p = databaseconnector.getInstance().getConnection().prepareStatement(sql);
               p.setString(1, data.getUserName());
               p.setString(2, new String(data.getPassword()));

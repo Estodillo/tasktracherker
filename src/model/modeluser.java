@@ -71,7 +71,7 @@ public class modeluser {
     public modeluser() {
     }
         public enum UserRole {
-        ADMIN,
+        TEACHER,
         USER
     }
     private int userID;
