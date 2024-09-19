@@ -56,7 +56,7 @@ public class datetable extends javax.swing.JFrame {
         jLabel2.setText("CATEGORY:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setText("         DATE:");
+        jLabel3.setText("s         DATE:");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Science", "Math", "English", "Filipino" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
