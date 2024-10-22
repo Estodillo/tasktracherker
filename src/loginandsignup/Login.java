@@ -1,7 +1,6 @@
 
-package loginandsignupteachers;
+package loginandsignup;
 
-import loginandsignupstudents.*;
 import javax.swing.JOptionPane;
 
 
@@ -22,6 +21,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         Left = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -51,6 +51,8 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setText("copyright © company name All rights reserved");
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/feesss.png"))); // NOI18N
+
         javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
         Right.setLayout(RightLayout);
         RightLayout.setHorizontalGroup(
@@ -62,11 +64,14 @@ public class Login extends javax.swing.JFrame {
             .addGroup(RightLayout.createSequentialGroup()
                 .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RightLayout.createSequentialGroup()
-                        .addGap(103, 103, 103)
+                        .addGap(221, 221, 221)
+                        .addComponent(jLabel5))
+                    .addGroup(RightLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
                         .addComponent(jLabel6))
                     .addGroup(RightLayout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(jLabel5)))
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel9)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RightLayout.setVerticalGroup(
@@ -74,9 +79,11 @@ public class Login extends javax.swing.JFrame {
             .addGroup(RightLayout.createSequentialGroup()
                 .addGap(136, 136, 136)
                 .addComponent(jLabel5)
-                .addGap(26, 26, 26)
+                .addGap(39, 39, 39)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(78, 78, 78))
         );
@@ -179,11 +186,11 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jButton2))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(507, Short.MAX_VALUE))
         );
 
         jPanel1.add(Left);
-        Left.setBounds(400, 0, 400, 500);
+        Left.setBounds(400, -5, 400, 930);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -223,19 +230,22 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_emailfieldActionPerformed
 
     private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
-        // TODO add your handling code here:
-        if (emailfield.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Please fill out username");
-        }
-        else if(passwordfield.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Please fill out password");
-        } 
-        else if(emailfield.getText().contains("viman")&& passwordfield.getText().contains("12345678")){
-            JOptionPane.showMessageDialog(null, "Login Successfully! ");
-        } 
-        else{
-            JOptionPane.showMessageDialog(null, "Wrong username or password!","Message",JOptionPane.ERROR_MESSAGE);
-        }
+  //       TODO add your handling code here:
+//        if (emailfield.getText().equals("")){
+//            JOptionPane.showMessageDialog(null, "Please fill out username");
+//        }
+//        else if(passwordfield.getText().equals("")){
+//            JOptionPane.showMessageDialog(null, "Please fill out password");
+//        } 
+//        else if(emailfield.getText().contains("viman")&& passwordfield.getText().contains("12345678")){
+//            JOptionPane.showMessageDialog(null, "Login Successfully! ");
+//        } 
+//        else{
+//            JOptionPane.showMessageDialog(null, "Wrong username or password!","Message",JOptionPane.ERROR_MESSAGE);
+//        }
+        
+        
+        
     }//GEN-LAST:event_loginbtnActionPerformed
 
     /**
@@ -255,6 +265,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginbtn;
     private javax.swing.JPasswordField passwordfield;

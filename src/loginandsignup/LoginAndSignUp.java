@@ -1,5 +1,5 @@
 
-package loginandsignupstudents;
+package loginandsignup;
 
 public class LoginAndSignUp {
 

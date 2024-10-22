@@ -25,7 +25,7 @@ public class usercontroller {
             }
     public boolean isAdmin(modeluser data) throws ClassNotFoundException {
         try {
-            String sql = "SELECT role FROM usertsble WHERE username = ?";
+            String sql = "SELECT role FROM user WHERE username = ?";
             PreparedStatement p = databaseconnector.getInstance().getConnection().prepareStatement(sql);
             p.setString(1, data.getUserName());
             ResultSet rs = p.executeQuery();

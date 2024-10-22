@@ -1,12 +1,11 @@
 
-package loginandsignupteachers;
-//import loginand.signup.Login;
-import com.mysql.cj.protocol.Message;
-import loginandsignupstudents.*;
+package loginandsignup;
 import controller.addusercontroller;
+import dashboard.TeacherDashboard;
 import model.modeluser;
 import controller.addusercontroller;
 import controller.usercontroller;
+import dashboard.StudentDashboard;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,6 +38,7 @@ public class SignUp extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         usernamefield = new javax.swing.JLabel();
@@ -69,10 +69,16 @@ public class SignUp extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("copyright © task track All rights reserved");
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/feesss.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(164, 164, 164))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -82,7 +88,7 @@ public class SignUp extends javax.swing.JFrame {
                         .addGap(72, 72, 72)
                         .addComponent(jLabel3))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGap(116, 116, 116)
                         .addComponent(jLabel2)))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
@@ -91,9 +97,11 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(129, 129, 129)
                 .addComponent(jLabel1)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addGap(129, 129, 129)
                 .addComponent(jLabel3)
                 .addGap(64, 64, 64))
         );
@@ -171,18 +179,21 @@ public class SignUp extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(usernamefield)
-                                .addComponent(userfield)
-                                .addComponent(jLabel6)
-                                .addComponent(emailfield, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
-                                .addComponent(jLabel7)
-                                .addComponent(passwordfield))
-                            .addComponent(signupbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(userfield, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(emailfield, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                                .addComponent(passwordfield, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(signupbtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(usernamefield, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -241,35 +252,28 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void signupbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupbtnActionPerformed
-        // TODO add your handling code here:
-         if (userfield.getText().equals("") || emailfield.getText().equals("") || passwordfield.getPassword().equals("")) {
-//                 showMessage(Message.MessageType.ERROR, "Please Fill out Empty Fields!");
-                } else {
-                    String userName = userfield.getText();
-                    char[] password = passwordfield.getPassword();
-                    String email = emailfield.getText();
-                    user = new modeluser(userName, email, password);
-                    usercontroller controller = new usercontroller();
-                    try {
-                        controller.registerUser(user);
-                        
-                    } catch (ClassNotFoundException ex) {
-  //                      Logger.getLogger(PanelLoginAndRegister.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-  //                  showMessage(Message.MessageType.SUCCESS, "User Added");
-                    
-                }
         
-//        String email = emailfield.getText();
-//        String username = userfield.getText();
-//        char[] password = passwordfield.getPassword();
-//        user = new modeluser(username, email, password);
-//        usercontroller controller = new usercontroller();
+        String email = emailfield.getText();
+        String username = userfield.getText();
+        char[] password = passwordfield.getPassword();
+        user = new modeluser(username, email, password);
+        usercontroller controller = new usercontroller();
+     try {
+         controller.registerUser(user);
+         StudentDashboard sd = new StudentDashboard();
+         sd.setVisible(true);
+         dispose();
+     } catch (ClassNotFoundException ex) {
+         Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+     }
 //     try {
-//         controller.registerUser(user);
+//          controller.registerUser(user);
+//         TeacherDashboard td = new TeacherDashboard();
+//         td.setVisible(true);
+//         dispose();
 //     } catch (ClassNotFoundException ex) {
 //         Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-//     }
+//     } 
     }//GEN-LAST:event_signupbtnActionPerformed
 
     private void userfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userfieldActionPerformed
@@ -283,7 +287,6 @@ public class SignUp extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -296,6 +299,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

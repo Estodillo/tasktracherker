@@ -18,25 +18,24 @@ public class addusercontroller {
     public  boolean addUserToDatabase(modeluser data) throws ClassNotFoundException {
     try {
         
-        String checkSql = "SELECT COUNT(*) AS count FROM usertsble";
+        String checkSql = "SELECT COUNT(*) AS count FROM user";
         PreparedStatement checkStatement = databaseconnector.getInstance().getConnection().prepareStatement(checkSql);
         ResultSet resultSet = checkStatement.executeQuery();
         resultSet.next();
         int rowCount = resultSet.getInt("count");
         
         String sql;
-        if (rowCount == 0) {
-            
-            sql = "INSERT INTO usertsble (username, password, email, role) VALUES (?, ?, ?, 'TEACHER')";
+       if (rowCount == 0) {
+            sql = "INSERT INTO user (username, password, email, role) VALUES (?, ?, ?, 'TEACHER')";
         } else {
-           
-            sql = "INSERT INTO usertsble (username, password, email, role) VALUES (?, ?, ?, 'USER')";
+            sql = "INSERT INTO user (username, password, email, role) VALUES (?, ?, ?, ?,'STUDENT' )";
         }
         
         PreparedStatement p = databaseconnector.getInstance().getConnection().prepareStatement(sql);
         p.setString(1, data.getUserName());
         p.setString(2, new String(data.getPassword()));
-        p.setString(3, data.getEmail());
+        p.setString(3, data.getEmail()); 
+
         p.executeUpdate();
         return true; 
     } catch (SQLException e) {
@@ -47,7 +46,7 @@ public class addusercontroller {
     public modeluser SignIn(modeluser data){
           try {
              
-              String sql = "SELECT * FROM usertsble WHERE username LIKE ? AND password LIKE ?";
+              String sql = "SELECT * FROM user WHERE username LIKE ? AND password LIKE ?";
               PreparedStatement p = databaseconnector.getInstance().getConnection().prepareStatement(sql);
               p.setString(1, data.getUserName());
               p.setString(2, new String(data.getPassword()));
@@ -84,4 +83,6 @@ public class addusercontroller {
              return e.getMessage();
         }
     }
+
+   
 }
