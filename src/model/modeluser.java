@@ -33,12 +33,6 @@ public class modeluser {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
     public char[] getPassword() {
         return password;
     }
@@ -46,25 +40,17 @@ public class modeluser {
     public void setPassword(char[] password) {
         this.password = password;
     }
-    public String getVerifyCode() {
-        return verifyCode;
-    }
-
-    public void setVerifyCode(String verifyCode) {
-        this.verifyCode = verifyCode;
-    }
-
-    public modeluser( String username, String email, char[] password, int userID) {
+   
+    public modeluser( String username, char[] password, int userID) {
         
         this.username = username;
-        this.email = email;
+        
         this.password = password;
-        this.verifyCode = verifyCode;
     }
-    public modeluser( String username, String email, char[] password) {
+    public modeluser (String username, char[] password) {
        
+        
         this.username = username;
-        this.email = email;
         this.password = password;
     }
 
@@ -72,13 +58,11 @@ public class modeluser {
     }
         public enum UserRole {
         TEACHER,
-        USER
+        STUDENT
     }
     private int userID;
     private String username;
-    private String email;
     private char[] password;
-    private String verifyCode;
     private UserRole role;
     
 }

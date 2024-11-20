@@ -172,16 +172,13 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="home">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Home"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Emoji" size="14" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Lenovo\Pictures\img\new home.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Home"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
@@ -220,6 +217,10 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="incomplete">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/image/missing.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Incomplete"/>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="69" green="69" red="1" type="rgb"/>
                     </Property>
@@ -229,10 +230,6 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/image/missing.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Incomplete"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="incompleteMouseClicked"/>
@@ -273,16 +270,13 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="Complete">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Complete"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Emoji" size="14" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\Lenovo\Pictures\img\todos.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Complete"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CompleteMousePressed"/>
@@ -292,15 +286,15 @@
             </Container>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
+                <Property name="text" type="java.lang.String" value="  TASK TRACK"/>
+                <Property name="verticalAlignment" type="int" value="3"/>
+                <Property name="alignmentY" type="float" value="0.0"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Showcard Gothic" size="18" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="  TASK TRACK"/>
-                <Property name="verticalAlignment" type="int" value="3"/>
-                <Property name="alignmentY" type="float" value="0.0"/>
                 <Property name="iconTextGap" type="int" value="3"/>
               </Properties>
             </Component>
@@ -314,7 +308,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/src/image/logout1.png"/>
+                  <Image iconType="3" name="/image/logout.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -350,16 +344,16 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="Complete1">
                   <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/image/settings.png"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Setting"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Emoji" size="14" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
-                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/image/settings.png"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Setting"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="Complete1MousePressed"/>
@@ -395,7 +389,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="395" max="32767" attributes="0"/>
+                      <EmptySpace pref="398" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -403,11 +397,11 @@
           <SubComponents>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
               <Properties>
+                <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                <Property name="verticalScrollBarPolicy" type="int" value="21"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
-                <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
-                <Property name="verticalScrollBarPolicy" type="int" value="21"/>
               </Properties>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
@@ -417,35 +411,15 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="pictureBox1" min="-2" pref="830" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="476" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="0" pref="1306" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="pictureBox1" alignment="0" pref="182" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="182" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                   </Layout>
-                  <SubComponents>
-                    <Container class="tasktrackswing.PictureBox" name="pictureBox1">
-
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-                        <Property name="useNullLayout" type="boolean" value="true"/>
-                      </Layout>
-                      <SubComponents>
-                        <Component class="slideshow.Slideshow" name="slideshow2">
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="0" y="0" width="830" height="180"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                  </SubComponents>
                 </Container>
               </SubComponents>
             </Container>

@@ -4,11 +4,19 @@
  */
 package studentandteachermain;
 
+import UptaskTrack.TeacherForms.Projects.AddProjectForms;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import loginandsignup.Login;
+import loginandsignup.LoginStudent;
+import loginandsignup.LoginTeacher;
+import raven.modal.ModalDialog;
+import raven.modal.component.SimpleModalBorder;
+import raven.modal.option.Location;
+import raven.modal.option.Option;
 
 /**
  *
@@ -16,16 +24,14 @@ import loginandsignup.Login;
  */
 public class studenandteacher extends javax.swing.JFrame {
 
-    /**
-     * Creates new form studenandteacher
-     */
+    
     public studenandteacher() {
         initComponents();     
         
     }
 
  
-     
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -145,7 +151,7 @@ public class studenandteacher extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(372, 372, 372))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(37, 436, Short.MAX_VALUE)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(411, 411, 411))
         );
@@ -316,14 +322,14 @@ public class studenandteacher extends javax.swing.JFrame {
 
     private void jstudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jstudentActionPerformed
         // TODO add your handling code here:
-        Login login = new Login();
+        LoginStudent login = new LoginStudent();
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_jstudentActionPerformed
 
     private void jteacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jteacherActionPerformed
         // TODO add your handling code here:
-        Login login = new Login();
+        LoginTeacher login = new LoginTeacher();
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_jteacherActionPerformed
@@ -336,30 +342,8 @@ public class studenandteacher extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(studenandteacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(studenandteacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(studenandteacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(studenandteacher.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+     
+        FlatLightLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new studenandteacher().setVisible(true);

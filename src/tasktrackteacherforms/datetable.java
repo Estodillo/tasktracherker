@@ -10,9 +10,8 @@ package tasktrackteacherforms;
  */
 public class datetable extends javax.swing.JFrame {
 
-    /**
-     * Creates new form datetable
-     */
+  
+    
     public datetable() {
         initComponents();
     }
@@ -30,7 +29,6 @@ public class datetable extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         Back = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -58,7 +56,6 @@ public class datetable extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("         DATE:");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 64, 31));
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 475, 31));
 
         Back.setText("Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +143,6 @@ public class datetable extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

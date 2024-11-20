@@ -29,7 +29,7 @@ public class Slide3 extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/image/1690465916795.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/1690465916795.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -37,7 +37,7 @@ public class Slide3 extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addGap(0, 151, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

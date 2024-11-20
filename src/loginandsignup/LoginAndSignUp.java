@@ -1,12 +1,15 @@
 
 package loginandsignup;
 
+import com.formdev.flatlaf.FlatIntelliJLaf;
+
 public class LoginAndSignUp {
 
 
     public static void main(String[] args) {
-
-        Login LoginFrame = new Login();
+        FlatIntelliJLaf.setup();
+        LoginTeacher LoginFrame = new LoginTeacher();
+        
         LoginFrame.setVisible(true);
         LoginFrame.pack();
         LoginFrame.setLocationRelativeTo(null); 
