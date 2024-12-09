@@ -1,9 +1,6 @@
 package dashboard;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 
 
 import com.sun.jdi.connect.spi.Connection;
@@ -28,6 +25,9 @@ public class StudentDashboard extends javax.swing.JFrame {
     public StudentDashboard() {
         initComponents();
         GlassPanePopup.install(this);
+    
+        
+        
         getContentPane().setBackground(new Color(255, 255, 255));
 //        slideshow2.initSlideshow(new Slide1(), new Slide2(), new Slide3());
         
@@ -96,9 +96,10 @@ public class StudentDashboard extends javax.swing.JFrame {
             }
         });
 
-        home.setText("Home");
         home.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         home.setForeground(new java.awt.Color(255, 255, 255));
+        home.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/new home.png"))); // NOI18N
+        home.setText("Home");
         home.setToolTipText("");
         home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,11 +131,11 @@ public class StudentDashboard extends javax.swing.JFrame {
             }
         });
 
-        incomplete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/missing.png"))); // NOI18N
-        incomplete.setText("Incomplete");
         incomplete.setBackground(new java.awt.Color(1, 105, 105));
         incomplete.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         incomplete.setForeground(new java.awt.Color(255, 255, 255));
+        incomplete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/missing.png"))); // NOI18N
+        incomplete.setText("Incomplete");
         incomplete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 incompleteMouseClicked(evt);
@@ -166,9 +167,10 @@ public class StudentDashboard extends javax.swing.JFrame {
             }
         });
 
-        Complete.setText("Complete");
         Complete.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         Complete.setForeground(new java.awt.Color(255, 255, 255));
+        Complete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/new comply.png"))); // NOI18N
+        Complete.setText("Complete");
         Complete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 CompleteMousePressed(evt);
@@ -189,11 +191,11 @@ public class StudentDashboard extends javax.swing.JFrame {
             .addComponent(Complete, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
         );
 
+        jLabel7.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("  TASK TRACK");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jLabel7.setAlignmentY(0.0F);
-        jLabel7.setFont(new java.awt.Font("Showcard Gothic", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setIconTextGap(3);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo1.png"))); // NOI18N
@@ -208,10 +210,10 @@ public class StudentDashboard extends javax.swing.JFrame {
             }
         });
 
-        Complete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/settings.png"))); // NOI18N
-        Complete1.setText("Setting");
         Complete1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         Complete1.setForeground(new java.awt.Color(255, 255, 255));
+        Complete1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/settings.png"))); // NOI18N
+        Complete1.setText("Grades");
         Complete1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Complete1MousePressed(evt);
@@ -270,9 +272,9 @@ public class StudentDashboard extends javax.swing.JFrame {
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(48, 48, 48)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
@@ -281,9 +283,9 @@ public class StudentDashboard extends javax.swing.JFrame {
         jDesktopPane1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jDesktopPane1.setForeground(new java.awt.Color(255, 255, 255));
 
+        jScrollPane1.setBorder(null);
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-        jScrollPane1.setBorder(null);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -311,7 +313,7 @@ public class StudentDashboard extends javax.swing.JFrame {
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(398, Short.MAX_VALUE))
+                .addContainerGap(395, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
