@@ -1,37 +1,25 @@
 
 package loginandsignup;
-import model.modeluser;
-import controller.addusercontroller;
+
 import controller.usercontroller;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.modeluser;
 
-public class SignUp extends javax.swing.JFrame {
 
- public modeluser getuser(){
+public class SignupStudents extends javax.swing.JFrame {
 
-     return user; 
-     
- 
- }
- private modeluser user;
-  
- private addusercontroller addcontroller;
- 
-    public SignUp() {
-        addcontroller = new addusercontroller();
+    
+    public SignupStudents() {
         initComponents();
-        
     }
 
-
-  
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -52,12 +40,6 @@ public class SignUp extends javax.swing.JFrame {
         userFld = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sign Up");
-        setUndecorated(true);
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(800, 500));
-        jPanel1.setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -105,11 +87,6 @@ public class SignUp extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(64, 64, 64))
         );
-
-        jLabel2.getAccessibleContext().setAccessibleName("Task Track");
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 400, 500);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -207,9 +184,9 @@ public class SignUp extends javax.swing.JFrame {
                                 .addComponent(idFld, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
                                 .addComponent(usernamefield, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(usernamefield1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(nameFld, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+                                .addComponent(nameFld, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(usernamefield2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(userFld, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)))
+                                .addComponent(userFld, javax.swing.GroupLayout.Alignment.LEADING)))
                         .addGap(16, 16, 16))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -242,73 +219,33 @@ public class SignUp extends javax.swing.JFrame {
                 .addGap(31, 31, 31))
         );
 
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(400, 0, 400, 500);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, 0)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        LoginTeacher LoginFrame = new LoginTeacher();
-        LoginFrame.setVisible(true);
-        LoginFrame.pack();
-        LoginFrame.setLocationRelativeTo(null); 
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void signupbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupbtnActionPerformed
-         String idnumber = idFld.getText();; 
-         String name = nameFld.getText(); 
-         String username = userFld.getText(); 
-        char[] password = passFld.getPassword();
-  
-        if (idnumber.isEmpty() || password == null || password.length == 0 || username.isEmpty() || name.isEmpty()) {
-
-            JOptionPane.showMessageDialog(this, "All field ust be filled out");
-        }
-
-        modeluser newUser = new modeluser (idnumber,name,username, password);
-
-        usercontroller controller = new usercontroller();
-
-     try {
-         boolean isRegistered = controller.registerUser(newUser);
-         if (isRegistered) {
-    
-    JOptionPane.showMessageDialog(this,"Sign in successfully" );
-    idFld.setText("");
-    passFld.setText("");
-    userFld.setText("");
-    nameFld.setText("");
-    
-        LoginTeacher LoginFrame = new LoginTeacher();
-        LoginFrame.setVisible(true);
-        LoginFrame.pack();
-        LoginFrame.setLocationRelativeTo(null); 
-        this.dispose();
-} else {
-    JOptionPane.showMessageDialog(this, "Signing in failed. Please try again");
-}
-         
-     } catch (ClassNotFoundException ex) {
-         Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
-     }
-    
-
-    }//GEN-LAST:event_signupbtnActionPerformed
 
     private void idFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFldActionPerformed
         // TODO add your handling code here:
@@ -317,6 +254,55 @@ public class SignUp extends javax.swing.JFrame {
     private void passFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passFldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passFldActionPerformed
+
+    private void signupbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupbtnActionPerformed
+        String idnumber = idFld.getText();;
+        String name = nameFld.getText();
+        String username = userFld.getText();
+        char[] password = passFld.getPassword();
+
+        if (idnumber.isEmpty() || password == null || password.length == 0 || username.isEmpty() || name.isEmpty()) {
+
+            JOptionPane.showMessageDialog(this, "All field ust be filled out");
+        }
+
+        modeluser newUser = new modeluser (username,name,idnumber, password);
+
+        usercontroller controller = new usercontroller();
+
+        try {
+            boolean isRegistered = controller.registerUser(newUser);
+            if (isRegistered) {
+
+                JOptionPane.showMessageDialog(this,"Sign in successfully" );
+                idFld.setText("");
+                passFld.setText("");
+                userFld.setText("");
+                nameFld.setText("");
+
+                LoginStudent LoginFrame = new LoginStudent();
+                LoginFrame.setVisible(true);
+                LoginFrame.pack();
+                LoginFrame.setLocationRelativeTo(null);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Signing in failed. Please try again");
+            }
+
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(SignUp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_signupbtnActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        LoginTeacher LoginFrame = new LoginTeacher();
+        LoginFrame.setVisible(true);
+        LoginFrame.pack();
+        LoginFrame.setLocationRelativeTo(null);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void nameFldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFldActionPerformed
         // TODO add your handling code here:
@@ -329,7 +315,37 @@ public class SignUp extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SignupStudents.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SignupStudents.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SignupStudents.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SignupStudents.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SignupStudents().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField idFld;
@@ -341,7 +357,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField nameFld;

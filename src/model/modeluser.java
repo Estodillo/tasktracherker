@@ -6,15 +6,15 @@ public class modeluser {
     /**
      * @return the userID
      */
-    public int getUserID() {
-        return userID;
+    public String getIdNumber() {
+        return idnumber;
     }
 
     /**
      * @param userID the userID to set
      */
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setIdNumber(String idnumber) {
+        this.idnumber = idnumber;
     }
 
     public UserRole getRole() {
@@ -25,6 +25,14 @@ public class modeluser {
         this.role = role;
     }
 
+     public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public String getUserName() {
         return username;
     }
@@ -41,16 +49,19 @@ public class modeluser {
         this.password = password;
     }
    
-    public modeluser( String username, char[] password, int userID) {
-        
-        this.username = username;
-        
-        this.password = password;
-    }
-    public modeluser (String username, char[] password) {
+    /**
+     *
+     * @param username
+     * @param name
+     * @param username1
+     * @param password
+     */
+  
+    public modeluser (String username,String name, String idnumber, char[] password) {
        
-        
+        this.idnumber = idnumber;
         this.username = username;
+        this.name = name;
         this.password = password;
     }
 
@@ -60,9 +71,12 @@ public class modeluser {
         TEACHER,
         STUDENT
     }
-    private int userID;
+        
+    private String idnumber;
+    private String name;
     private String username;
     private char[] password;
     private UserRole role;
+    
     
 }

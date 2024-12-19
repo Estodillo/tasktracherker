@@ -49,14 +49,16 @@ public class addusercontroller {
         
         String sql;
        if (rowCount == 0) {
-            sql = "INSERT INTO user (username, password, role) VALUES (?, ?, 'TEACHER')";
+            sql = "INSERT INTO user (idnumber,name,username, password, role) VALUES (?,?,?, ?, 'TEACHER')";
         } else {
-            sql = "INSERT INTO user (username, password, role) VALUES (?, ?, 'STUDENT')";
+            sql = "INSERT INTO user (idnumber,name,username,password, role) VALUES (?,?,?, ?, 'STUDENT')";
         }
         
         PreparedStatement p = prepareStatement(sql);
-        p.setString(1, data.getUserName());
-        p.setString(2, new String(data.getPassword()));
+        p.setString(1, data.getIdNumber());
+        p.setString(2, data.getName());
+        p.setString(3, data.getUserName());
+        p.setString(4, new String(data.getPassword()));
 
         p.executeUpdate();
         JOptionPane.showMessageDialog(null, "Succesfully Register");
@@ -76,7 +78,7 @@ public class addusercontroller {
               ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 
-                return new modeluser(rs.getString("username"), rs.getString("password").toCharArray());
+             return new modeluser(rs.getString("username"), rs.getString("name"), rs.getString("idnumber"), rs.getString("password").toCharArray());
             } else {
                 
                 return null;

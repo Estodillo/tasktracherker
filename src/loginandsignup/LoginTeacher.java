@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import model.modeluser;
+import studentandteachermain.studenandteacher;
 
 
 
@@ -41,6 +42,7 @@ public class LoginTeacher extends javax.swing.JFrame {
         loginbtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        loginbtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
@@ -155,6 +157,16 @@ public class LoginTeacher extends javax.swing.JFrame {
             }
         });
 
+        loginbtn1.setBackground(new java.awt.Color(0, 102, 102));
+        loginbtn1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        loginbtn1.setForeground(new java.awt.Color(255, 255, 255));
+        loginbtn1.setText("Back");
+        loginbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginbtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout LeftLayout = new javax.swing.GroupLayout(Left);
         Left.setLayout(LeftLayout);
         LeftLayout.setHorizontalGroup(
@@ -176,13 +188,18 @@ public class LoginTeacher extends javax.swing.JFrame {
                             .addGroup(LeftLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))))
+                                .addComponent(jButton2))))
+                    .addGroup(LeftLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(loginbtn1)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(18, 18, 18)
+                .addComponent(loginbtn1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40)
                 .addComponent(jLabel2)
@@ -250,7 +267,7 @@ char[] password = passwordfield.getPassword();
 if (username.isEmpty() || password.length == 0) {
     JOptionPane.showMessageDialog(null, "Please fill out empty fields");
 } else {
-    modeluser loginUser = new modeluser(username, password);
+    modeluser loginUser = new modeluser(username, "", "", password);
     usercontroller controller = new usercontroller();
     modeluser loggedInUser = controller.LogIn(loginUser);
 
@@ -268,6 +285,7 @@ if (username.isEmpty() || password.length == 0) {
                 
                 TeacherDashboard teacherDashboard = new TeacherDashboard();
                 teacherDashboard.setVisible(true);
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "User is not a teacher.", "Message", JOptionPane.ERROR_MESSAGE);
             }
@@ -281,6 +299,13 @@ if (username.isEmpty() || password.length == 0) {
 }
 
     }//GEN-LAST:event_loginbtnActionPerformed
+
+    private void loginbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtn1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    studenandteacher studentAndTeacherFrame = new studenandteacher();  
+    studentAndTeacherFrame.setVisible(true);
+    }//GEN-LAST:event_loginbtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,6 +327,7 @@ if (username.isEmpty() || password.length == 0) {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginbtn;
+    private javax.swing.JButton loginbtn1;
     private javax.swing.JPasswordField passwordfield;
     // End of variables declaration//GEN-END:variables
 }

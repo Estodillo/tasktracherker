@@ -2,84 +2,90 @@
 package model;
 
 public class GradeModel {
-    private String idNumber;
-    private String name;
-    private double science;
-    private double english;
-    private double filipino;
-    private double math;
+   
+    /**
+     * @return the science
+     */
+     public String getIdNumber() {
+        return idnumber;
+    }
+
+    /**
+     * @param science the science to set
+     */
+    public void setIdNumber(String idnumber) {
+        this.idnumber = idnumber;
+    }
     
-    public GradeModel(String idNumber, String name, double science, double english, double filipino, double math) {
-        this.idNumber = idNumber;
-        this.name = name;
-        this.science = science;
-        this.english = english;
-        this.filipino = filipino;
-        this.math = math;
-    }
-
-    public GradeModel() {
-    }
-
-    // Getters and Setters
-    public String getIdNumber() {
-        return idNumber;
-    }
-
-    public void setIdNumber(String idNumber) {
-        this.idNumber = idNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getScience() {
+    public String getScience() {
         return science;
     }
 
-    public void setScience(double science) {
+    /**
+     * @param science the science to set
+     */
+    public void setScience(String science) {
         this.science = science;
     }
 
-    public double getEnglish() {
+    /**
+     * @return the english
+     */
+    public String getEnglish() {
         return english;
     }
 
-    public void setEnglish(double english) {
+    /**
+     * @param english the english to set
+     */
+    public void setEnglish(String english) {
         this.english = english;
     }
 
-    public double getFilipino() {
-        return filipino;
-    }
-
-    public void setFilipino(double filipino) {
-        this.filipino = filipino;
-    }
-
-    public double getMath() {
+    /**
+     * @return the math
+     */
+    public String getMath() {
         return math;
     }
 
-    public void setMath(double math) {
+    /**
+     * @param math the math to set
+     */
+    public void setMath(String math) {
         this.math = math;
     }
 
-    // To String Method for Display
-    @Override
-    public String toString() {
-        return "Grade{" +
-                "idNumber='" + idNumber + '\'' +
-                ", name='" + name + '\'' +
-                ", science=" + science +
-                ", english=" + english +
-                ", filipino=" + filipino +
-                ", math=" + math +
-                '}';
+    /**
+     * @return the filipino
+     */
+    public String getFilipino() {
+        return filipino;
     }
+
+    /**
+     * @param filipino the filipino to set
+     */
+    public void setFilipino(String filipino) {
+        this.filipino = filipino;
+    }
+    
+      public GradeModel( String idnumber, String science, String english, String math, String filipino) {
+        this.idnumber = idnumber;
+        this.science = science;
+        this.english = english;
+        this.math = math;
+        this.filipino = filipino;
+      
+    }
+      
+      public GradeModel (){
+          
+      }
+    
+    private String idnumber;
+    private String science;
+    private String english;
+    private String math;
+    private String filipino;
 }

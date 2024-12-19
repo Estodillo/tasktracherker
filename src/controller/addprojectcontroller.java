@@ -1,5 +1,5 @@
-
 package controller;
+
 import databaseconnector.databaseconnector;
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,91 +8,138 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.projectmodel;
+import java.sql.DriverManager;
+import java.sql.Connection;
 
 public class addprojectcontroller {
     private PreparedStatement p;
     private DefaultTableModel tableModel;
-    ResultSet rs;
+    private ResultSet rs;
+    private Connection conn;
 
+    // Constructor to initialize the database connection
     public addprojectcontroller() {
+        conn = initializeConnection();
     }
-    
-       private Connection getConnection() {
-       databaseconnector databasecon = new databaseconnector();
+
+    // Constructor with DefaultTableModel
+    public addprojectcontroller(DefaultTableModel tableModel) {
+        this();
+        this.tableModel = tableModel;
+    }
+
+    // Method to initialize the database connection
+    private Connection initializeConnection() {
+        databaseconnector databaseCon = new databaseconnector();
         try {
-            return databasecon.getCConnection();
+            return databaseCon.getCConnection();
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
     }
-     private PreparedStatement prepareStatement(String sql) {
-        try {
-            Connection con = getConnection();
-            if (con != null) {
-                return con.prepareStatement(sql);
+
+    // Method to prepare SQL statements
+    private PreparedStatement prepareStatement(String sql) throws SQLException {
+        if (conn != null) {
+            return conn.prepareStatement(sql);
+        } else {
+            throw new SQLException("Database connection is not established.");
+        }
+    }
+
+    // Method to add a project to the database
+    public void addProjectToDatabase(projectmodel model) {
+        String sql = "INSERT INTO projecttable (subject, studentid, projectname, description, date, deadline) VALUES (?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement p = prepareStatement(sql)) {
+            p.setString(1, model.getSubject());
+            p.setString(2, model.getStudentid());
+            p.setString(3, model.getProjectName());
+            p.setString(4, model.getDescription());
+            p.setDate(5, new java.sql.Date(model.getDate().getTime()));
+            p.setDate(6, new java.sql.Date(model.getDeadline().getTime()));
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public List<projectmodel> getProjectsBySubjectAndStudentId(String subject, String studentID) {
+    List<projectmodel> filteredProjects = new ArrayList<>();
+    try {
+        // SQL query to fetch projects based on both subject and student ID
+        String sql = "SELECT * FROM projecttable WHERE subject = ? AND studentid = ?";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setString(1, subject);
+        stmt.setString(2, studentID);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            projectmodel project = new projectmodel();
+            // Populate project fields from the result set
+            project.setSubject(rs.getString("subject"));
+            project.setProjectName(rs.getString("projectname"));
+            project.setDescription(rs.getString("description"));
+            project.setDate(rs.getDate("date"));
+            project.setDeadline(rs.getDate("deadline"));
+            project.setStudentid(rs.getString("studentid"));
+            filteredProjects.add(project);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return filteredProjects;
+}
+
+   public List<projectmodel> getProjectsBySubject(String subject) {
+    List<projectmodel> projects = new ArrayList<>();
+    String query = "SELECT subject, projectname, description, date, deadline FROM projecttable WHERE subject = ?";
+
+    try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/tasktrack", "root", "root");
+         PreparedStatement stmt = conn.prepareStatement(query)) {
+
+        stmt.setString(1, subject);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            projects.add(new projectmodel(
+                rs.getString("subject"),
+                rs.getString("studentid"),
+                rs.getString("projectname"),
+                rs.getString("description"),
+                rs.getDate("date"),
+                rs.getDate("deadline")
+            ));
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return projects;
+}
+
+
+
+    // Method to populate the project list from the database
+    public List<projectmodel> populateProject() {
+        List<projectmodel> list = new ArrayList<>();
+        String sql = "SELECT * FROM projecttable";
+
+        try (PreparedStatement p = prepareStatement(sql); ResultSet rs = p.executeQuery()) {
+            while (rs.next()) {
+                projectmodel model = new projectmodel();
+                model.setSubject(rs.getString("subject"));
+                model.setStudentid(rs.getString("studentid"));
+                model.setProjectName(rs.getString("projectname"));
+                model.setDescription(rs.getString("description"));
+                model.setDate(rs.getDate("date"));
+                model.setDeadline(rs.getDate("deadline"));
+                list.add(model);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
-    }
-
-    public addprojectcontroller(DefaultTableModel tableModel) {
-        this.tableModel = tableModel;
-    }
-public void addProjectToDatabase(projectmodel addData){
-     String insertSql = "INSERT INTO projecttable (projectname, description, date, dealine) VALUES (?, ?, ?, ?)";
-
-    try {
-        
-        p = prepareStatement(insertSql);
-        // Set the parameters for the INSERT query
-        p.setString(1, addData.getProjectName());
-        p.setString(2, addData.getDescription());
-        p.setDate(3, new java.sql.Date(addData.getDate().getTime())); // Convert date
-    p.setDate(4, new java.sql.Date(addData.getDeadline().getTime())); 
-
-     p.executeUpdate();
-        System.out.println("SUcces");
-    } catch (SQLException e) {
-        e.printStackTrace();
-        System.err.println("Error while adding project to the database: " + e.getMessage());
-    } finally {
-        try {
-            if (p != null) p.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        return list;
     }
 }
-
-public List<projectmodel> populateProject(){
-    List<projectmodel>list = new ArrayList<>();
-    projectmodel model = new projectmodel();
-    try {
-        String sql = "SELECT * FROM projecttable";
-        p = prepareStatement(sql);
-        
-        rs = p.executeQuery();
-        while (rs.next()) {            
-           model.setProjectName(rs.getString("projectname"));
-           model.setDescription(rs.getString("description"));
-           model.setDate(rs.getDate("date"));
-           model.setDeadline(rs.getDate("dealine"));
-           list.add(model);
-        }
-        
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    
-    return list;
-}
-    
-    
-}
-

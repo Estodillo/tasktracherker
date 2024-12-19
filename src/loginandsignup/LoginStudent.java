@@ -6,7 +6,9 @@ import dashboard.StudentDashboard;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import model.GradeModel;
 import model.modeluser;
+import studentandteachermain.studenandteacher;
 
 
 public class LoginStudent extends javax.swing.JFrame {
@@ -30,12 +32,13 @@ public class LoginStudent extends javax.swing.JFrame {
         Left = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        emailfield = new javax.swing.JTextField();
+        unamefield = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         passwordfield = new javax.swing.JPasswordField();
         loginbtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        loginbtn1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("LOGIN");
@@ -107,13 +110,13 @@ public class LoginStudent extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(102, 102, 102));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Email");
+        jLabel2.setText("Username");
 
-        emailfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        emailfield.setForeground(new java.awt.Color(102, 102, 102));
-        emailfield.addActionListener(new java.awt.event.ActionListener() {
+        unamefield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        unamefield.setForeground(new java.awt.Color(102, 102, 102));
+        unamefield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailfieldActionPerformed(evt);
+                unamefieldActionPerformed(evt);
             }
         });
 
@@ -148,6 +151,16 @@ public class LoginStudent extends javax.swing.JFrame {
             }
         });
 
+        loginbtn1.setBackground(new java.awt.Color(0, 102, 102));
+        loginbtn1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        loginbtn1.setForeground(new java.awt.Color(255, 255, 255));
+        loginbtn1.setText("Back");
+        loginbtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginbtn1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout LeftLayout = new javax.swing.GroupLayout(Left);
         Left.setLayout(LeftLayout);
         LeftLayout.setHorizontalGroup(
@@ -162,25 +175,30 @@ public class LoginStudent extends javax.swing.JFrame {
                         .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel2)
-                                .addComponent(emailfield)
+                                .addComponent(unamefield)
                                 .addComponent(jLabel3)
                                 .addComponent(passwordfield, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
                                 .addComponent(loginbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(LeftLayout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))))
+                                .addComponent(jButton2))))
+                    .addGroup(LeftLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(loginbtn1)))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         LeftLayout.setVerticalGroup(
             LeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(15, 15, 15)
+                .addComponent(loginbtn1)
+                .addGap(9, 9, 9)
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(emailfield, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(unamefield, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -218,7 +236,7 @@ public class LoginStudent extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        SignUp SignUpFrame = new SignUp();
+        SignupStudents SignUpFrame = new SignupStudents();
         SignUpFrame.setVisible(true);
         SignUpFrame.pack();
         SignUpFrame.setLocationRelativeTo(null); 
@@ -229,21 +247,20 @@ public class LoginStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordfieldActionPerformed
 
-    private void emailfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailfieldActionPerformed
+    private void unamefieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unamefieldActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_emailfieldActionPerformed
+    }//GEN-LAST:event_unamefieldActionPerformed
 
     private void loginbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtnActionPerformed
-  //       TODO add your handling code here:
-  String username = emailfield.getText();
-char[] password = passwordfield.getPassword();
+  String username = unamefield.getText();
+  char[] password = passwordfield.getPassword();
 
 
 if (username.isEmpty() || password.length == 0) {
     JOptionPane.showMessageDialog(null, "Please fill out empty fields");
 } else {
-    modeluser loginUser = new modeluser(username, password);
+    modeluser loginUser = new modeluser(username, "", "", password);
     usercontroller controller = new usercontroller();
     modeluser loggedInUser = controller.LogIn(loginUser);
 
@@ -259,8 +276,14 @@ if (username.isEmpty() || password.length == 0) {
                 }
 
                 
-                StudentDashboard studentDashboard = new StudentDashboard();
+                StudentDashboard studentDashboard = new StudentDashboard(loggedInUser);
+                GradeModel gradeData = controller.getGradeData(loggedInUser.getIdNumber());
+                if (gradeData == null) {
+                    gradeData = new GradeModel(); 
+                }
+                studentDashboard.setData(gradeData);
                 studentDashboard.setVisible(true);
+                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "User is not a student.", "Message", JOptionPane.ERROR_MESSAGE);
             }
@@ -275,6 +298,13 @@ if (username.isEmpty() || password.length == 0) {
 
     }//GEN-LAST:event_loginbtnActionPerformed
 
+    private void loginbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginbtn1ActionPerformed
+        // TODO add your handling code here:
+         this.dispose();
+    studenandteacher studentAndTeacherFrame = new studenandteacher();  
+    studentAndTeacherFrame.setVisible(true);
+    }//GEN-LAST:event_loginbtn1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -283,7 +313,6 @@ if (username.isEmpty() || password.length == 0) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Left;
     private javax.swing.JPanel Right;
-    private javax.swing.JTextField emailfield;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -295,6 +324,8 @@ if (username.isEmpty() || password.length == 0) {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginbtn;
+    private javax.swing.JButton loginbtn1;
     private javax.swing.JPasswordField passwordfield;
+    private javax.swing.JTextField unamefield;
     // End of variables declaration//GEN-END:variables
 }

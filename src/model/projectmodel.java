@@ -13,6 +13,34 @@ import java.util.Date;
 public class projectmodel {
 
     /**
+     * @return the studentid
+     */
+    public String getStudentid() {
+        return studentid;
+    }
+
+    /**
+     * @param studentid the studentid to set
+     */
+    public void setStudentid(String studentid) {
+        this.studentid = studentid;
+    }
+
+    /**
+     * @return the subject
+     */
+    public String getSubject() {
+        return subject;
+    }
+
+    /**
+     * @param subject the subject to set
+     */
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    /**
      * @return the projectName
      */
     public String getProjectName() {
@@ -68,18 +96,22 @@ public class projectmodel {
         this.deadline = deadline;
     }
 
-    public projectmodel(String projectName, String description, Date date, Date deadline) {
+    public projectmodel(String subject,String studentid, String projectName, String description, Date date, Date deadline) {
         this.projectName = projectName;
+        this.studentid = studentid;
+        this.subject = subject;
         this.description = description;
         this.date = date;
         this.deadline = deadline;
     }
-
+    
    
 
     public projectmodel() {
     }
     private String projectName;
+    private String studentid;
+    private String subject;
     private String description;
     private Date date;
     private Date deadline;

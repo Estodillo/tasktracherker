@@ -11,7 +11,7 @@ public class databaseconnector {
      public Connection getCConnection() throws SQLException{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            return DriverManager.getConnection("jdbc:mysql://192.168.0.107:3306/tasktrack", "tasktrack", "TaskTrack12");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/tasktrack", "root", "root");
         } catch (ClassNotFoundException | SQLException e) {
             java.util.logging.Logger.getLogger(databaseconnector.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
         

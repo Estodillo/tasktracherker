@@ -82,29 +82,28 @@ public class usercontroller {
     }
      
 
-    public void saveGrade(GradeModel grade) {
+     public GradeModel getGradeData(String idnumber) throws ClassNotFoundException {
+    GradeModel gradeData = null;
+    try {
        
-        
-        String query = "INSERT INTO grades (idNumber, name, science, english, math, filipino) VALUES (?, ?, ?, ?, ?, ?)";
-        try (
-             PreparedStatement stmt = connection.prepareStatement(query)) {
+        String sql = "SELECT science, english, math, filipino FROM gradetbl WHERE idnumber = ?";
+        PreparedStatement ps = prepareStatement(sql);
+        ps.setString(1, idnumber);
 
-            stmt.setString(1, grade.getIdNumber());
-            stmt.setString(2, grade.getName());
-            stmt.setDouble(3, grade.getScience());
-            stmt.setDouble(4, grade.getEnglish());
-            stmt.setDouble(5, grade.getFilipino());
-            stmt.setDouble(6, grade.getMath());
+        ResultSet rs = ps.executeQuery();
 
-            int rowsInserted = stmt.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("Grade saved successfully!");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Failed to save grade.");
+        if (rs.next()) {
+            gradeData = new GradeModel();
+            gradeData.setScience(rs.getString("science"));
+            gradeData.setEnglish(rs.getString("english"));
+            gradeData.setMath(rs.getString("math"));
+            gradeData.setFilipino(rs.getString("filipino"));
         }
-    }
+    } catch (SQLException e) {
+        e.printStackTrace(); 
+    } 
+    return gradeData;
+}
     
     
 }

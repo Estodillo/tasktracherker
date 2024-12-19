@@ -1,27 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package studentandteachermain;
 
-import UptaskTrack.TeacherForms.Projects.AddProjectForms;
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
-import java.util.logging.Logger;
-import java.util.logging.Level;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
 import loginandsignup.LoginStudent;
 import loginandsignup.LoginTeacher;
-import raven.modal.ModalDialog;
-import raven.modal.component.SimpleModalBorder;
-import raven.modal.option.Location;
-import raven.modal.option.Option;
 
-/**
- *
- * @author adamd
- */
+
 public class studenandteacher extends javax.swing.JFrame {
 
     
@@ -282,7 +266,7 @@ public class studenandteacher extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -290,12 +274,12 @@ public class studenandteacher extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -321,14 +305,12 @@ public class studenandteacher extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jstudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jstudentActionPerformed
-        // TODO add your handling code here:
-        LoginStudent login = new LoginStudent();
+       LoginStudent login = new LoginStudent();
         login.setVisible(true);
         dispose();
     }//GEN-LAST:event_jstudentActionPerformed
 
     private void jteacherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jteacherActionPerformed
-        // TODO add your handling code here:
         LoginTeacher login = new LoginTeacher();
         login.setVisible(true);
         dispose();
@@ -338,9 +320,6 @@ public class studenandteacher extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel11MousePressed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
      
         FlatLightLaf.setup();
